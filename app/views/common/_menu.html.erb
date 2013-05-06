@@ -28,15 +28,19 @@
       <%= link_to(Setting.app_name, Setting.domain , :class => "brand" )%>
       <ul class="nav" role="navigation">
         <li class="dropdown">
-          <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">帳號管理<b class="caret"></b></a>
-          <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
-            <li role="presentation"><a role="menuitem" tabindex="-1" href="http://google.com">新增帳號</a></li>
+          <%= link_to(users_path, :class => "dropdown-toggle", :data => { :toggle => "dropdown" }) do %>
+            帳號管理<b class="caret"></b>
+          <% end %>
+          <ul class="dropdown-menu">
+            <li role="presentation"><%= link_to("新增帳號", new_user_path) %></li>
             <li role="presentation" class="divider"></li>
             <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
           </ul>
         </li>
         <li class="dropdown">
-          <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">資料管理<b class="caret"></b></a>
+          <%= link_to(users_path, :class => "dropdown-toggle", :data => { :toggle => "dropdown" }) do %>
+            資料管理<b class="caret"></b>
+          <% end %>
           <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
             <li role="presentation"><a role="menuitem" tabindex="-1" href="http://google.com">聯絡人管理</a></li>
             <li role="presentation"><a role="menuitem" tabindex="-1" href="http://google.com">檔案管理</a></li>
@@ -46,7 +50,9 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a id="drop1" href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">專案管理<b class="caret"></b></a>
+          <%= link_to(users_path, :class => "dropdown-toggle", :data => { :toggle => "dropdown" }) do %>
+            專案管理<b class="caret"></b>
+          <% end %>
           <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
             <li role="presentation"><a role="menuitem" tabindex="-1" href="http://google.com">專案資料管理</a></li>
             <li role="presentation"><a role="menuitem" tabindex="-1" href="http://google.com">工作清單</a></li>
