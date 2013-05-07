@@ -20,6 +20,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem "font-awesome-rails"
 gem 'jquery-rails'
 gem 'devise'
 gem "seo_helper", "~> 1.0"

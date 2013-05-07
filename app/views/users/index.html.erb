@@ -1,1 +1,27 @@
-Users
+<div class="span12 basic-form-page">
+  <div class="box form-container">
+    <h3><i class="icon-th-large"></i>帳號管理</h3>
+    <table class="table table-bordered">
+      <thead>
+        <th>序號</th>
+        <th>帳號</th>
+        <th>姓名</th>
+        <th>職稱</th>
+        <th>帳號狀態</th>
+        <th></th>
+      </thead>
+      <tbody>
+        <% @users.each_with_index do |user, i| %>
+        <tr>
+          <td><%= i+1 %></td>
+          <td><%= link_to(user.account, edit_user_path(user)) %></td>
+          <td><%= user.name %></td>
+          <td><%= user.title %></td>
+          <td><%= user.enabled %></td>
+          <td>ACTIONS</td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

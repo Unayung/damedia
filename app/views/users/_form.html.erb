@@ -1,0 +1,25 @@
+<%= simple_form_for(@user, :url => users_path, :html => {:class => "simple_form form-horizontal form-register"}) do |f| %>
+<div class="control-group">
+  <%= f.label :name, "姓名", :class => "control-label" %>
+  <div class="controls">
+    <%= f.text_field :name, :required => true %>
+  </div>
+</div>
+<div class="control-group">
+  <%= f.label :password, "密碼", :class => "control-label" %>
+  <div class="controls">
+    <%= f.password_field :password, :required => true %>
+  </div>
+</div>
+<div class="control-group">
+  <%= f.label :password_confirmation, "確認密碼", :class => "control-label" %>
+  <div class="controls">
+    <%= f.password_field :password_confirmation, :required => true %>
+  </div>
+</div>
+<div class="control-group">
+  <div class="controls">
+    <%= button_tag("儲存", :class => "btn btn-primary btn-submit") %>
+  </div>
+</div>
+<% end %>

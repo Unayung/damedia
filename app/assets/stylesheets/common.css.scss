@@ -31,13 +31,13 @@
 @import "compass/css3";
 
 .basic-form-page {
-  h2 {
-    width: 310px;
-    height: 80px;
-    background: url('/assets/images/logo_tint_large.png') no-repeat left top;
-    text-indent: -9999px;
-    margin: 1.5em auto;
-    pointer-events: none;
+
+  h3 {
+    i {
+      padding: 9px 10px;
+      margin-right: 5px;
+    }
+    padding: 10px 5px;
   }
   a {
     color: #3a71e6;
