@@ -26,4 +26,11 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def after_sign_in_path_for(resource)
+    if current_user.admin?
+      users_path
+    else
+      "http://www.google.com.tw"
+    end
+  end
 end

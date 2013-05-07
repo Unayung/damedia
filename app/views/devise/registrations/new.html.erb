@@ -1,0 +1,60 @@
+<div class="row">
+<div id="register-page" class="span6 offset3 basic-form-page">
+  <br>
+  <br>
+  <br>
+  <div class="box form-container register-buyble">
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => "simple_form form-horizontal form-register"}) do |f| %>
+      <br>
+      <legend>註冊帳號</legend>
+      
+      <% if resource.errors.any? %>
+      <p class="alert alert-danger"><i class="icon-warning-sign"></i> 請再次檢查您輸入的資訊，以完成註冊：</p>
+      <% end -%>
+      
+      <div class="control-group">
+        <%= f.label :account, "帳號", :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :account, :required => true, :autofocus => true %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :password, "密碼", :class => "control-label" %>
+        <div class="controls">
+          <%= f.password_field :password, :required => true %>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <%= f.label :password_confirmation, "確認密碼", :class => "control-label" %>
+        <div class="controls">
+          <%= f.password_field :password_confirmation, :required => true %>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <%= f.label :name, "姓名", :class => "control-label" %>
+        <div class="controls">
+          <%= f.text_field :name, :required => true, :autofocus => true %>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.label :email, "E-mail", :class => "control-label" %>
+        <div class="controls">
+          <%= f.email_field :email, :required => true %>
+        </div>
+      </div>
+      
+      <div class="control-group">
+        <div class="controls">
+          <%= button_tag("確認註冊", :class => "btn btn-primary btn-submit") %>
+        </div>
+      </div>
+    <% end %>
+    <br>
+  </div>
+
+</div>
+</div>
