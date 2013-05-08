@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_filter :find_user, :only => [:show, :edit, :update, :change_password, :edit_password]
 
   def index
-    @users = User.all
+    @users = User.paginate(:page => params[:page], :per_page => 10)
   end
 
   def show
@@ -23,9 +23,9 @@ class UsersController < ApplicationController
     end
 
     if @user.update_attributes(params[:user])
-      redirect_to edit_user_path(@user), :notice => "修改成功"
+      redirect_to edit_user_path(@user), :notice => "修改資料成功"
     else
-      render :action => "edit", :notice => "修改失敗"
+      render :action => "edit", :notice => "修改資料失敗"
     end
   end
 
@@ -34,13 +34,22 @@ class UsersController < ApplicationController
   end
 
   def change_password
-    if @user.update_with_password(params[:user])
-      # Sign in the user by passing validation in case his password changed
-      sign_in @user, :bypass => true
-      redirect_to root_path
+    if params[:user][:password] != params[:user][:password_confirmation]
+      flash[:error] = "新密碼不相符, 請確定兩次輸入相同"
+      redirect_to edit_password_user_path(@user)
+    elsif params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+      flash[:notice] = "密碼未更改"
+      redirect_to edit_password_user_path(@user)
     else
-      render :action => "edit", :notice => "修改失敗"
+      if @user.update_attributes(params[:user])
+        # Sign in the user by passing validation in case his password changed
+        sign_in @user, :bypass => true
+        redirect_to edit_user_path(@user), :notice => "修改密碼成功"
+      else
+        render "edit_password", :notice => "修改密碼失敗"
+      end
     end
+
   end
 
   def destroy

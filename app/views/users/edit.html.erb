@@ -2,6 +2,12 @@
   <div class="box form-container">
     <h3><i class="icon-th-large"></i>帳號管理 - <%= @user.account %></h3>
     <%= simple_form_for(@user, :url => user_path(@user), :html => {:class => "simple_form form-horizontal form-register", :method => :put}) do |f| %>
+    <% if @user.errors.any? %>
+    <div class="alert alert-danger">
+      <a href="#" class="close" data-dismiss="alert">×</a>
+      錯誤：<%= f.error_notification %>
+    </div>
+    <% end %>
     <div class="control-group">
       <%= f.label :name, "姓名", :class => "control-label" %>
       <div class="controls">
@@ -10,8 +16,9 @@
     </div>
     <div class="control-group">
       <div class="controls">
+        <%= link_to("返回上頁", users_path, :class => "btn btn-info") %>
         <%= link_to("變更密碼", edit_password_user_path(@user), :class => "btn btn-warning") %>
-        <%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-primary" %>
+        <%= f.submit("儲存", :disable_with => '儲存中...', :class => "btn btn-primary right") %>
       </div>
     </div>
     <% end %>

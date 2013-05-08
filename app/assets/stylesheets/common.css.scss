@@ -31,7 +31,9 @@
 @import "compass/css3";
 
 .basic-form-page {
-
+  th {
+    background-color: #ccc;
+  }
   h3 {
     i {
       padding: 9px 10px;
