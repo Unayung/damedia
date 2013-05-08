@@ -1,0 +1,22 @@
+<div class="span12 basic-form-page">
+  <div class="box form-container">
+    <h3><i class="icon-th-large"></i>登入記錄</h3>
+    <table class="table table-bordered">
+      <thead>
+        <th>序號</th>
+        <th>登入 IP</th>
+        <th>登入時間</th>
+      </thead>
+      <tbody>
+        <% @records.each_with_index do |record, i| %>
+        <tr>
+          <td><%= render_serial_number(i) %></td>
+          <td><%= record.ip_address %></td>
+          <td><%= render_login_date_time(record) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate @records %>
+  </div>
+</div>

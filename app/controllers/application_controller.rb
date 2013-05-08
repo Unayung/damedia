@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     if current_user.admin?
       users_path
     else
-      "http://www.google.com.tw"
+      edit_user_path(current_user)
     end
   end
 end

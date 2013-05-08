@@ -1,7 +1,9 @@
 @import "bootstrap-setting";
 @import "twitter/bootstrap";
 @import "bootstrap-override";
-
+.btn [class^="icon-"]{
+  padding-top: 3px;
+}
 .social{
    float:left;
    width: 90px;
@@ -32,7 +34,8 @@
 
 .basic-form-page {
   th {
-    background-color: #ccc;
+    background-color: #BE1621;
+    color: #eee;
   }
   h3 {
     i {

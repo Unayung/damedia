@@ -23,7 +23,7 @@ class UsersController < ApplicationController
     end
 
     if @user.update_attributes(params[:user])
-      redirect_to edit_user_path(@user), :notice => "修改資料成功"
+      redirect_to users_path, :notice => "修改資料成功"
     else
       render :action => "edit", :notice => "修改資料失敗"
     end

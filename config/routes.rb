@@ -5,6 +5,7 @@ Damedia::Application.routes.draw do
   # root :to => 'high_voltage/pages#show', :id => 'welcome'
 
   resources :users do
+    resources :login_records
     member do
       get :edit_password
       put :change_password

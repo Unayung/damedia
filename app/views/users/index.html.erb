@@ -13,12 +13,15 @@
       <tbody>
         <% @users.each_with_index do |user, i| %>
         <tr>
-          <td><%= render_user_serial_number(i) %></td>
-          <td><%= link_to(user.account, edit_user_path(user)) %></td>
+          <td><%= render_serial_number(i) %></td>
+          <td><%= user.account %></td>
           <td><%= user.name %></td>
           <td><%= user.title %></td>
-          <td><%= user.enabled %></td>
-          <td>ACTIONS</td>
+          <td><%= render_user_status(user) %></td>
+          <td>
+            <%= ibutton("編輯資訊", edit_user_path(user), :iclass => "icon-edit", :class => "btn btn-default ") %>
+            <%= ibutton("登入記錄", user_login_records_path(user), :iclass => "icon-list", :class => "btn btn-default") %>
+          </td>
         </tr>
         <% end %>
       </tbody>
