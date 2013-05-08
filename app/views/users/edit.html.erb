@@ -9,19 +9,8 @@
       </div>
     </div>
     <div class="control-group">
-      <%= f.label :password, "密碼", :class => "control-label" %>
       <div class="controls">
-        <%= f.password_field :password, :required => true %>
-      </div>
-    </div>
-    <div class="control-group">
-      <%= f.label :password_confirmation, "確認密碼", :class => "control-label" %>
-      <div class="controls">
-        <%= f.password_field :password_confirmation, :required => true %>
-      </div>
-    </div>
-    <div class="control-group">
-      <div class="controls">
+        <%= link_to("變更密碼", edit_password_user_path(@user), :class => "btn btn-warning") %>
         <%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-primary" %>
       </div>
     </div>

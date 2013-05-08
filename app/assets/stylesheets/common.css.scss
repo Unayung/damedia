@@ -39,11 +39,7 @@
     }
     padding: 10px 5px;
   }
-  a {
-    color: #3a71e6;
-    text-decoration: underline;
-    &.btn { text-decoration: none; }
-  }
+
   .box {
     @include box-shadow( 0 1px 3px rgba(34,25,25,0.4) );
   }
