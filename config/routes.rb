@@ -4,7 +4,7 @@ Damedia::Application.routes.draw do
 
   # root :to => 'high_voltage/pages#show', :id => 'welcome'
 
-  resources :users
+  resources :users, only: [:index, :show, :edit, :update]
   
   devise_scope :user do
     root :to => "devise/sessions#new"

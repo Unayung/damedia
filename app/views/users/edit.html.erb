@@ -1,7 +1,31 @@
 <div class="span12 basic-form-page">
   <div class="box form-container">
     <h3><i class="icon-th-large"></i>帳號管理 - <%= @user.account %></h3>
-    <%= render :partial => "form" %>
+    <%= simple_form_for(@user, :url => user_path(@user), :html => {:class => "simple_form form-horizontal form-register", :method => :put}) do |f| %>
+    <div class="control-group">
+      <%= f.label :name, "姓名", :class => "control-label" %>
+      <div class="controls">
+        <%= f.text_field :name, :required => true %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :password, "密碼", :class => "control-label" %>
+      <div class="controls">
+        <%= f.password_field :password, :required => true %>
+      </div>
+    </div>
+    <div class="control-group">
+      <%= f.label :password_confirmation, "確認密碼", :class => "control-label" %>
+      <div class="controls">
+        <%= f.password_field :password_confirmation, :required => true %>
+      </div>
+    </div>
+    <div class="control-group">
+      <div class="controls">
+        <%= f.submit "Submit", :disable_with => 'Submiting...', :class => "btn btn-primary" %>
+      </div>
+    </div>
+    <% end %>
     <br>
   </div>
 </div>
